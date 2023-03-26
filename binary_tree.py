@@ -12,17 +12,17 @@ class Tree:
     def __is_empty(self):
         return self.root == None
 
-    def __insertNode(self, node: Node, value: int) -> None:
+    def __insert_node(self, node: Node, value: int) -> None:
         if value < node.value:
             if node.left is None:
                 node.left = Node(value)
             else:
-                self.__insertNode(node.left, value)
+                self.__insert_node(node.left, value)
         if value > node.value:
             if node.right is None:
                 node.right = Node(value)
             else:
-                self.__insertNode(node.right, value)
+                self.__insert_node(node.right, value)
 
     def __inorder(self, node: None) -> None:
         if node is not None:
@@ -56,7 +56,7 @@ class Tree:
 
     def add_node(self, node: Node, values: list) -> None:
         for value in values:
-            self.__insertNode(node, value)
+            self.__insert_node(node, value)
 
     def inorder(self):
         print("\nPrinting the tree inorder: ")
@@ -80,19 +80,19 @@ class Tree:
         else:
             print(f'Node not found with that value {target}.')
 
-    def deepestLevel(self, root: Node) -> int:
+    def deepest_level(self, root: Node) -> int:
         if not root:
             return 0
-        return max(self.deepestLevel(root.left), self.deepestLevel(root.right)) + 1
+        return max(self.deepest_level(root.left), self.deepest_level(root.right)) + 1
 
-    def deepestNode(self, root: Node, maxLevel, result=[]) -> int:
+    def deepest_node(self, root: Node, max_level, result=[]) -> list:
         if not root:
-            return
+            return []
 
-        if maxLevel == 1:
+        if max_level == 1:
             result.append(root.value)
-        elif maxLevel > 1:
-            self.deepestNode(root.left, maxLevel - 1)
-            self.deepestNode(root.right, maxLevel - 1)
+        elif max_level > 1:
+            self.deepest_node(root.left, max_level - 1)
+            self.deepest_node(root.right, max_level - 1)
 
         return result

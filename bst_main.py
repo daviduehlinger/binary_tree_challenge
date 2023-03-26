@@ -22,8 +22,17 @@ if __name__ == '__main__':
             bt.preorder()
             bt.inorder()
             bt.postorder()
-            deepestLevel = bt.deepestLevel(root=bt.root)
+            deepestLevel = bt.deepest_level(root=bt.root) - 66
+            34
+            78
+            32
+            8
+            18
+            21
+            37
+            52
+            901
             print(f'\nThe deepest level of the tree is {deepestLevel}')
-            print(f'\nThe deepest node have the value {bt.deepestNode(bt.root, deepestLevel)}')
+            print(f'\nThe deepest node have the value {bt.deepest_node(bt.root, deepestLevel)}')
     except:
         sys.exit('\nAn error has occurred.')
